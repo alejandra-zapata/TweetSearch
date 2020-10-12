@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Tweet Search" icon-name="standard:search">
+        <div if:true={errorMsg} style="margin-left: 3%;">
+            <p style="color: red;">{errorMsg}</p>
+        </div>
+
+        <div class="slds-form-element__control">
+            <div class="slds-var-m-around_medium">
+                <lightning-input type="text" label="Enter Tweet Id" onchange={handleTweetId}></lightning-input>
+            </div>
+        </div>
+        <div class="slds-form-element__control">
+            <div class="slds-var-m-around_medium">
+                <lightning-button label="Find tweet!" variant="brand-outline" onclick={handleTweetSearch}></lightning-button>
+            </div>
+        </div>
+        
+        <div if:true={searchData} style="margin-left: 3%;">
+            <p class="info"><span class="subheading">Twitter Text: </span>{twitterText}</p>
+            <p class="info"><span class="subheading">Created At: </span>{createdAt}</p>
+            <p class="info"><span class="subheading">Author Id: </span>{authorId}</p>
+        </div>
+    </lightning-card>
+</template>
